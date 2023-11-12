@@ -1,9 +1,10 @@
 -- My conquest begins to reconfigure nvim in lua from scratch
 
-local g = vim.g             -- Global variables
+local g = vim.g         -- Global variables
 
 -- Leader is space
 g.mapleader = ' '
 g.maplocalleader = ' '
 
 require('core.editor')
+require('core.plugins')
