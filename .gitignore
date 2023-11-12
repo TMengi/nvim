@@ -1,4 +1,4 @@
 # My old way of doing things using a legacy vimrc, plus configuration settings
 # for my coc-nvim LSP
-init.vim
+init.vim.backup
 coc-settings.json
