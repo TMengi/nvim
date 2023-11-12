@@ -6,8 +6,8 @@ local keymap = vim.keymap   -- Set keybindings
 
 -- Tab/indent behavior
 opt.expandtab = true    -- Use spaces instead of tabs
-opt.shiftwidth = 4      -- Shift 4 spaces on tab
-opt.tabstop = 4         -- 1 tab = 4 spaces
+opt.shiftwidth = 2      -- Shift n spaces on tab
+opt.tabstop = 2         -- 1 tab = n spaces
 
 -- Search and highlighting
 opt.smartcase = true
