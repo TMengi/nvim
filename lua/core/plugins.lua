@@ -14,4 +14,9 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 opt.rtp:prepend(lazypath)
-return require('lazy').setup({})
+return require('lazy').setup({
+  'ellisonleao/gruvbox.nvim',
+  'nvim-tree/nvim-tree.lua',
+  'nvim-tree/nvim-web-devicons',
+  'nvim-lualine/lualine.nvim',
+})

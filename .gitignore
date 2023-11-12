@@ -2,3 +2,6 @@
 # for my coc-nvim LSP
 init.vim.backup
 coc-settings.json
+
+# For lazy.nvim package manager
+lazy-lock.json
