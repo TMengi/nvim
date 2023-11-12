@@ -15,4 +15,4 @@ opt.tabstop = 4         -- 1 tab = 4 spaces
 -- Search and highlighting
 opt.smartcase = true
 opt.hls = true
-vim.keymap.set('n', '<silent><leader>hh', ':set hls!<cr>')
+vim.keymap.set('n', '<leader>hh', ':set hls!<cr>', {silent = true})
