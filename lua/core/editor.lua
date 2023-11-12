@@ -24,3 +24,14 @@ keymap.set('n', '<c-j>', '<c-w>j', {silent = true})
 keymap.set('n', '<c-k>', '<c-w>k', {silent = true})
 keymap.set('n', '<c-l>', '<c-w>l', {silent = true})
 keymap.set('n', '<leader>wq', ':windo wq<cr>', {silent = true})
+
+-- Line numbering
+opt.number = true
+
+-- Line length and rulers
+opt.textwidth = 79
+opt.colorcolumn = '80,120'
+
+-- TODO
+-- [ ] configure tabwidth by file extension
+--   - lua should be 2
