@@ -1,15 +1,18 @@
 -- My conquest begins to reconfigure nvim in lua from scratch
 
+local g = vim.g         -- Global varaibles
+local opt = vim.opt     -- Set options
+
 -- Leader is space
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+g.mapleader = ' '
+g.maplocalleader = ' '
 
 -- Tab/indent behavior
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.expandtab = true    -- Use spaces instead of tabs
+opt.shiftwidth = 4      -- Shift 4 spaces on tab
+opt.tabstop = 4         -- 1 tab = 4 spaces
 
 -- Search and highlighting
-vim.opt.smartcase = true
-vim.opt.hls = true
+opt.smartcase = true
+opt.hls = true
 vim.keymap.set('n', '<silent><leader>hh', ':set hls!<cr>')
