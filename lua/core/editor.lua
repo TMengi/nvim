@@ -1,8 +1,9 @@
 -- Basic editor configuration. Covers things like tabs/indentation,
 -- searching/highlighting, window navigation, etc.
 
-local opt = vim.opt
+local api = vim.api
 local keymap = vim.keymap
+local opt = vim.opt
 
 -- Tab/indent behavior
 opt.expandtab = true    -- Use spaces instead of tabs
@@ -42,3 +43,11 @@ opt.cmdheight = 2
 -- Always show the signcolumn, otherwise it shifts the text each time
 -- diagnostics appear or become resolved
 opt.signcolumn = 'yes'
+
+-- Inderline cursor line in insert mode
+api.nvim_create_autocmd({'InsertEnter'}, {
+  command = 'set cul'
+})
+api.nvim_create_autocmd({'InsertLeave'}, {
+  callback = function() opt.cul = false end
+})
