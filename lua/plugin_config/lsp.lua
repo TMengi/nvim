@@ -19,9 +19,12 @@ local on_attach = function(_, _)
   keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
 end
 
+-- Include completion capabilities in various LSPs
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup({
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -32,5 +35,7 @@ lspconfig.lua_ls.setup({
     }
   }
 })
-lspconfig.pyright.setup({})
+lspconfig.pyright.setup({
+  capabilities = capabilities
+})
 lspconfig.rust_analyzer.setup({})
