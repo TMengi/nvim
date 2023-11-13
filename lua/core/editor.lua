@@ -69,3 +69,6 @@ api.nvim_create_autocmd({'InsertEnter'}, {
 api.nvim_create_autocmd({'InsertLeave'}, {
   callback = function() opt.cul = false end
 })
+
+-- Update faster than the default 4000 ms
+opt.updatetime = 100

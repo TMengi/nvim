@@ -38,4 +38,5 @@ require('lazy').setup({
   'ggandor/leap.nvim',
   'Yggdroot/indentLine',
   'numToStr/comment.nvim',
+  'airblade/vim-gitgutter',
 })

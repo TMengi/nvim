@@ -13,6 +13,7 @@ local plugin_names = {
   'leap',
   'indentline',
   'comment',
+  'vim-gitgutter',
 }
 
 for _, name in pairs(plugin_names) do
