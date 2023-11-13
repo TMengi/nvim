@@ -34,4 +34,5 @@ require('lazy').setup({
       'neovim/nvim-lspconfig',  -- Quickstarts for lspconfig
     }
   },
+  'windwp/nvim-autopairs',
 })

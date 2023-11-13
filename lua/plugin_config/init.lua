@@ -9,6 +9,7 @@ local plugin_names = {
   'nvim-treesitter',
   'telescope',
   'lsp',
+  'nvim-autopairs',
 }
 
 for _, name in pairs(plugin_names) do
