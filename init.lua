@@ -1,8 +1,6 @@
 -- My conquest begins to reconfigure nvim in lua from scratch
 
 -- TODO
--- [ ] configure tabwidth by file extension
---   - lua should be 2
 -- [ ] gitgutter or gitlens
 -- [ ] commenter
 

@@ -4,11 +4,20 @@
 local api = vim.api
 local keymap = vim.keymap
 local opt = vim.opt
+local opt_local = vim.opt_local
 
 -- Tab/indent behavior
 opt.expandtab = true    -- Use spaces instead of tabs
-opt.shiftwidth = 2      -- Shift n spaces on tab
-opt.tabstop = 2         -- 1 tab = n spaces
+opt.shiftwidth = 4      -- Shift n spaces on tab
+opt.tabstop = 4         -- 1 tab = n spaces
+api.nvim_create_autocmd('FileType', {
+  desc = 'Some languages indent with 2 spaces',
+  pattern = {'lua', 'cpp', 'h'},
+  callback = function()
+    opt_local.tabstop = 2
+    opt_local.shiftwidth = 2
+  end
+})
 
 -- Search and highlighting
 opt.smartcase = true
@@ -36,6 +45,13 @@ opt.number = true
 -- Line length and rulers
 opt.textwidth = 79
 opt.colorcolumn = '80,120'
+api.nvim_create_autocmd('FileType', {
+  desc = 'Rust allows longer line lengths',
+  pattern = '*.rs',
+  callback = function()
+    opt_local.colorcolumn = '100'
+  end
+})
 
 -- Make the cmd window taller for displaying errors
 opt.cmdheight = 2
@@ -46,7 +62,7 @@ opt.signcolumn = 'yes'
 
 -- Inderline cursor line in insert mode
 api.nvim_create_autocmd({'InsertEnter'}, {
-  command = 'set cul'
+  callback = function() opt.cul = true end
 })
 api.nvim_create_autocmd({'InsertLeave'}, {
   callback = function() opt.cul = false end
