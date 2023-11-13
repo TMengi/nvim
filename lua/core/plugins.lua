@@ -13,20 +13,25 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-return require('lazy').setup({
-  'ellisonleao/gruvbox.nvim',
-  'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
-  'nvim-lualine/lualine.nvim',
+require('lazy').setup({
+  'ellisonleao/gruvbox.nvim',  -- Colorscheme
+  'nvim-tree/nvim-tree.lua',  -- File tree
+  {'nvim-lualine/lualine.nvim',  -- Status line
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',  -- Icons for status line and file tree
+    }
+  },
   'nvim-treesitter/nvim-treesitter',
-  {
-    'nvim-telescope/telescope.nvim',
+  {'nvim-telescope/telescope.nvim',
     tag = '0.1.4',
     dependencies = {
       'nvim-lua/plenary.nvim'
     }
   },
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'neovim/nvim-lspconfig',
+  {'williamboman/mason.nvim',  -- Language servers
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',  -- Interface to lspconfig
+      'neovim/nvim-lspconfig',  -- Quickstarts for lspconfig
+    }
+  },
 })
