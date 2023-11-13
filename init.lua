@@ -3,7 +3,6 @@
 -- TODO
 -- [ ] configure tabwidth by file extension
 --   - lua should be 2
--- [ ] leap.nvim
 -- [ ] gitgutter or gitlens
 -- [ ] commenter
 -- [ ] indentline

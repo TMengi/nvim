@@ -35,4 +35,5 @@ require('lazy').setup({
     }
   },
   'windwp/nvim-autopairs',
+  'ggandor/leap.nvim',
 })
