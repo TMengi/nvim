@@ -2,7 +2,8 @@ local keymap = vim.keymap
 
 local builtin = require('telescope.builtin')
 
-keymap.set('n', '<c-p>', builtin.find_files)
-keymap.set('n', '<space><space>', builtin.oldfiles)
-keymap.set('n', '<space>fg', builtin.live_grep)
-keymap.set('n', '<space>fh', builtin.help_tags)
+local opts = {noremap = true}
+keymap.set('n', '<c-p>', builtin.find_files, opts)
+keymap.set('n', '<space><space>', builtin.oldfiles, opts)
+keymap.set('n', '<space>fg', builtin.live_grep, opts)
+keymap.set('n', '<space>fh', builtin.help_tags, opts)

@@ -29,16 +29,17 @@ opt.splitbelow = true
 opt.splitright = true
 
 -- Window navigation and resizing
-keymap.set('n', '<c-h>', '<c-w>h', {silent = true})
-keymap.set('n', '<c-j>', '<c-w>j', {silent = true})
-keymap.set('n', '<c-k>', '<c-w>k', {silent = true})
-keymap.set('n', '<c-l>', '<c-w>l', {silent = true})
-keymap.set('n', '<up>', ':resize +1<cr>', {silent = true})
-keymap.set('n', '<down>', ':resize -1<cr>', {silent = true})
-keymap.set('n', '<left>', ':vertical resize -1<cr>', {silent = true})
-keymap.set('n', '<right>', ':vertical resize +1<cr>', {silent = true})
-keymap.set('n', '<leader>wq', ':windo wq<cr>', {silent = true})
-keymap.set('n', '<leader>=', '<c-w>=', {silent = true})
+local opts = {silent = true, noremap = true}
+keymap.set('n', '<c-h>', '<c-w>h', opts)
+keymap.set('n', '<c-j>', '<c-w>j', opts)
+keymap.set('n', '<c-k>', '<c-w>k', opts)
+keymap.set('n', '<c-l>', '<c-w>l', opts)
+keymap.set('n', '<up>', ':resize +1<cr>', opts)
+keymap.set('n', '<down>', ':resize -1<cr>', opts)
+keymap.set('n', '<left>', ':vertical resize -1<cr>', opts)
+keymap.set('n', '<right>', ':vertical resize +1<cr>', opts)
+keymap.set('n', '<leader>wq', ':windo wq<cr>', opts)
+keymap.set('n', '<leader>=', '<c-w>=', opts)
 
 -- Line numbering
 opt.number = true
