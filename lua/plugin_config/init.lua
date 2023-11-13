@@ -2,12 +2,13 @@
 
 -- Put new files in here, .lua config paths relative to config_dir
 local config_dir = 'plugin_config'
-plugin_names = {
+local plugin_names = {
   'gruvbox',
   'lualine',
   'nvim-tree',
   'nvim-treesitter',
   'telescope',
+  'lsp',
 }
 
 for _, name in pairs(plugin_names) do

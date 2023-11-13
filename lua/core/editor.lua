@@ -1,8 +1,8 @@
 -- Basic editor configuration. Covers things like tabs/indentation,
 -- searching/highlighting, window navigation, etc.
 
-local opt = vim.opt         -- Options
-local keymap = vim.keymap   -- Set keybindings
+local opt = vim.opt
+local keymap = vim.keymap
 
 -- Tab/indent behavior
 opt.expandtab = true    -- Use spaces instead of tabs
@@ -38,3 +38,7 @@ opt.colorcolumn = '80,120'
 
 -- Make the cmd window taller for displaying errors
 opt.cmdheight = 2
+
+-- Always show the signcolumn, otherwise it shifts the text each time
+-- diagnostics appear or become resolved
+opt.signcolumn = 'yes'

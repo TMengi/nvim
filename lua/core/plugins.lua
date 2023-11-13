@@ -1,7 +1,5 @@
 -- Bootstraps the plugin manager
 
-local opt = vim.opt     -- Options
-
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -13,7 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
+
 return require('lazy').setup({
   'ellisonleao/gruvbox.nvim',
   'nvim-tree/nvim-tree.lua',
@@ -26,5 +25,8 @@ return require('lazy').setup({
     dependencies = {
       'nvim-lua/plenary.nvim'
     }
-  }
+  },
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  'neovim/nvim-lspconfig',
 })

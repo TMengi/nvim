@@ -1,9 +1,9 @@
 -- My conquest begins to reconfigure nvim in lua from scratch
 
 -- TODO
+-- [ ] bracket pairs
 -- [ ] configure tabwidth by file extension
 --   - lua should be 2
--- [ ] language server with mason
 -- [ ] leap.nvim
 -- [ ] gitgutter or gitlens
 -- [ ] commenter
