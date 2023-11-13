@@ -26,7 +26,7 @@ lspconfig.lua_ls.setup({
     Lua = {
       diagnostics = {
         globals = {
-          'vim'  -- Tells the LSP that the vim API is in the global namespace
+          'vim' -- Tells the LSP that the vim API is in the global namespace
         }
       }
     }

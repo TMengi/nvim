@@ -7,7 +7,7 @@ g.loaded_netrwPlugin = 1
 
 require('nvim-tree').setup({
   filters = {
-    dotfiles = false  -- Show dotfiles
+    dotfiles = false -- Show dotfiles
   },
   view = {
     width = 30

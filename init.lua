@@ -4,7 +4,7 @@
 -- [ ] gitgutter or gitlens
 -- [ ] commenter
 
-local g = vim.g     -- Global variables
+local g = vim.g
 
 -- Leader is space
 g.mapleader = ' '

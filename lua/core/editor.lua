@@ -7,9 +7,9 @@ local opt = vim.opt
 local opt_local = vim.opt_local
 
 -- Tab/indent behavior
-opt.expandtab = true    -- Use spaces instead of tabs
-opt.shiftwidth = 4      -- Shift n spaces on tab
-opt.tabstop = 4         -- 1 tab = n spaces
+opt.expandtab = true  -- Use spaces instead of tabs
+opt.shiftwidth = 4    -- Shift n spaces on tab
+opt.tabstop = 4       -- 1 tab = n spaces
 api.nvim_create_autocmd('FileType', {
   desc = 'Some languages indent with 2 spaces',
   pattern = {'lua', 'cpp', 'h'},
@@ -38,6 +38,7 @@ keymap.set('n', '<down>', ':resize -1<cr>', {silent = true})
 keymap.set('n', '<left>', ':vertical resize -1<cr>', {silent = true})
 keymap.set('n', '<right>', ':vertical resize +1<cr>', {silent = true})
 keymap.set('n', '<leader>wq', ':windo wq<cr>', {silent = true})
+keymap.set('n', '<leader>=', '<c-w>=', {silent = true})
 
 -- Line numbering
 opt.number = true

@@ -14,11 +14,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'ellisonleao/gruvbox.nvim',  -- Colorscheme
-  'nvim-tree/nvim-tree.lua',  -- File tree
-  {'nvim-lualine/lualine.nvim',  -- Status line
+  'ellisonleao/gruvbox.nvim', -- Colorscheme
+  'nvim-tree/nvim-tree.lua', -- File tree
+  {'nvim-lualine/lualine.nvim', -- Status line
     dependencies = {
-      'nvim-tree/nvim-web-devicons',  -- Icons for status line and file tree
+      'nvim-tree/nvim-web-devicons', -- Icons for status line and file tree
     }
   },
   'nvim-treesitter/nvim-treesitter',
@@ -28,13 +28,14 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim'
     }
   },
-  {'williamboman/mason.nvim',  -- Language servers
+  {'williamboman/mason.nvim', -- Language servers
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',  -- Interface to lspconfig
-      'neovim/nvim-lspconfig',  -- Quickstarts for lspconfig
+      'williamboman/mason-lspconfig.nvim', -- Interface to lspconfig
+      'neovim/nvim-lspconfig', -- Quickstarts for lspconfig
     }
   },
   'windwp/nvim-autopairs',
   'ggandor/leap.nvim',
   'Yggdroot/indentLine',
+  'numToStr/comment.nvim',
 })
