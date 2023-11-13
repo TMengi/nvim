@@ -2,6 +2,8 @@
 
 -- TODO
 -- [ ] Warn about trailing whitespace
+-- [ ] Code formatting
+-- [ ] Jump to LSP diagnostics
 
 local g = vim.g
 

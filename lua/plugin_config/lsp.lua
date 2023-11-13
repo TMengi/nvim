@@ -22,6 +22,8 @@ end
 -- Include completion capabilities in various LSPs
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
+-- TODO: Figure out how to pass on_attach and capabilities as an extendable
+-- table to all configs
 lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
@@ -36,6 +38,7 @@ lspconfig.lua_ls.setup({
   }
 })
 lspconfig.pyright.setup({
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach,
 })
 lspconfig.rust_analyzer.setup({})
