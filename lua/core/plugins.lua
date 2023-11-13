@@ -39,4 +39,14 @@ require('lazy').setup({
   'Yggdroot/indentLine',
   'numToStr/comment.nvim',
   'airblade/vim-gitgutter',
+  {'hrsh7th/nvim-cmp', -- Completions...
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp', --
+      'hrsh7th/cmp-buffer',  -- From buffers
+      'hrsh7th/cmp-path', -- From filetree
+      'hrsh7th/cmp-cmdline', --
+      'hrsh7th/cmp-vsnip', -- Snippet engine
+      'hrsh7th/vim-vsnip', --
+    }
+  }
 })
