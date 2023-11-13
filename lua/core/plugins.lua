@@ -49,4 +49,5 @@ require('lazy').setup({
       'hrsh7th/vim-vsnip', --
     }
   },
+  'mhartington/formatter.nvim',
 })

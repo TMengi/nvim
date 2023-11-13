@@ -1,9 +1,12 @@
 -- My conquest begins to reconfigure nvim in lua from scratch
 
 -- TODO
--- [ ] Warn about trailing whitespace
 -- [ ] Code formatting
+--   - [x] lua
+--   - [ ] python
+--   - [ ] C++
 -- [ ] Jump to LSP diagnostics
+-- [ ] LSP for C++
 
 local g = vim.g
 

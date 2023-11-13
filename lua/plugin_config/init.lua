@@ -15,6 +15,7 @@ local plugin_names = {
   'comment',
   'vim-gitgutter',
   'nvim-cmp',
+  'formatter',
 }
 
 for _, name in pairs(plugin_names) do
