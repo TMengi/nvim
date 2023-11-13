@@ -12,6 +12,8 @@ cmp.setup({
     -- documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
+    ['<tab>'] = cmp.mapping.select_next_item(),
+    ['<s-tab>'] = cmp.mapping.select_prev_item(),
     ['<c-b>'] = cmp.mapping.scroll_docs(-4),
     ['<c-f>'] = cmp.mapping.scroll_docs(4),
     ['<c-space>'] = cmp.mapping.complete(),

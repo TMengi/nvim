@@ -38,7 +38,7 @@ keymap.set('n', '<up>', ':resize +1<cr>', opts)
 keymap.set('n', '<down>', ':resize -1<cr>', opts)
 keymap.set('n', '<left>', ':vertical resize -1<cr>', opts)
 keymap.set('n', '<right>', ':vertical resize +1<cr>', opts)
-keymap.set('n', '<leader>wq', ':windo wq<cr>', opts)
+keymap.set('n', '<leader>wq', ':windo q<cr>', opts)
 keymap.set('n', '<leader>=', '<c-w>=', opts)
 
 -- Line numbering
