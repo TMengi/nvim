@@ -5,7 +5,6 @@
 --   - lua should be 2
 -- [ ] gitgutter or gitlens
 -- [ ] commenter
--- [ ] indentline
 
 local g = vim.g     -- Global variables
 

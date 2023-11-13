@@ -11,6 +11,7 @@ local plugin_names = {
   'lsp',
   'nvim-autopairs',
   'leap',
+  'indentline',
 }
 
 for _, name in pairs(plugin_names) do
