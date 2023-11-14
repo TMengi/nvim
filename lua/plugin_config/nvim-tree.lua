@@ -7,11 +7,11 @@ g.loaded_netrwPlugin = 1
 
 require('nvim-tree').setup({
   filters = {
-    dotfiles = false -- Show dotfiles
+    dotfiles = false, -- Show dotfiles
   },
   view = {
-    width = 30
+    width = 30,
   },
 })
 
-keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', {silent = true})
+keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<cr>', { silent = true })

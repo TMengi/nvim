@@ -7,7 +7,7 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'pyright',
     'rust_analyzer',
-  }
+  },
 })
 
 local on_attach = function(_, _)
@@ -31,11 +31,11 @@ lspconfig.lua_ls.setup({
     Lua = {
       diagnostics = {
         globals = {
-          'vim' -- Tells the LSP that the vim API is in the global namespace
-        }
-      }
-    }
-  }
+          'vim', -- Tells the LSP that the vim API is in the global namespace
+        },
+      },
+    },
+  },
 })
 lspconfig.pyright.setup({
   capabilities = capabilities,

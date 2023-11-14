@@ -12,7 +12,7 @@ require('formatter').setup({
       require('formatter.filetypes.lua').stylua,
     },
     python = {
-      require('formatter.filetypes.python').yapf, -- Note you may have to replace the executable with the version used in your projects
+      require('formatter.filetypes.python').yapf,
     },
     ['*'] = {
       require('formatter.filetypes.any').remove_trailing_whitespace,
