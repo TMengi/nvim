@@ -4,6 +4,10 @@ require('lualine').setup({
     theme = 'gruvbox', -- Should I be using 'auto'?
   },
   sections = {
+    lualine_b = {
+      'diff',
+      'diagnostics',
+    },
     lualine_c = {
       {
         'filename',
