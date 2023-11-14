@@ -98,3 +98,6 @@ api.nvim_create_autocmd(syntax_events, {
     opt_local.syntax = 'yaml'
   end,
 })
+
+-- Additive highlighting
+keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
