@@ -5,7 +5,6 @@
 --   - [x] lua
 --   - [x] python
 --   - [ ] C++
--- [ ] Jump to LSP diagnostics
 -- [ ] LSP for C++
 -- [ ] faster telescope sorting (there are recommendations on the github page)
 

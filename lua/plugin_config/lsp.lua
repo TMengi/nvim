@@ -1,3 +1,4 @@
+local diagnostic = vim.diagnostic
 local keymap = vim.keymap
 local lsp = vim.lsp
 
@@ -17,6 +18,8 @@ local on_attach = function(_, _)
   keymap.set('n', 'gd', lsp.buf.definition)
   keymap.set('n', 'gi', lsp.buf.implementation)
   keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
+  keymap.set('n', ']g', diagnostic.goto_next)
+  keymap.set('n', '[g', diagnostic.goto_prev)
 end
 
 -- Include completion capabilities in various LSPs
