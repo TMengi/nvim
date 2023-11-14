@@ -101,3 +101,6 @@ api.nvim_create_autocmd(syntax_events, {
 
 -- Additive highlighting
 keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
+
+-- Github view macro
+keymap.set('n', '<leader>v', ':!~/.local/bin/gv.py %<cr>')
