@@ -7,29 +7,29 @@ local opt = vim.opt
 local opt_local = vim.opt_local
 
 -- Tab/indent behavior
-opt.expandtab = true  -- Use spaces instead of tabs
-opt.shiftwidth = 4    -- Shift n spaces on tab
-opt.tabstop = 4       -- 1 tab = n spaces
+opt.expandtab = true -- Use spaces instead of tabs
+opt.shiftwidth = 2 -- Shift n spaces on tab
+opt.tabstop = 2 -- 1 tab = n spaces
 api.nvim_create_autocmd('FileType', {
   desc = 'Some languages indent with 2 spaces',
-  pattern = {'lua', 'cpp', 'h'},
+  pattern = { 'python', 'rust' },
   callback = function()
-    opt_local.tabstop = 2
-    opt_local.shiftwidth = 2
-  end
+    opt_local.tabstop = 4
+    opt_local.shiftwidth = 4
+  end,
 })
 
 -- Search and highlighting
 opt.smartcase = true
 opt.hls = true
-keymap.set('n', '<leader>hh', ':set hls!<cr>', {silent = true})
+keymap.set('n', '<leader>hh', ':set hls!<cr>', { silent = true })
 
 -- Split windows the way I expect them
 opt.splitbelow = true
 opt.splitright = true
 
 -- Window navigation and resizing
-local opts = {silent = true, noremap = true}
+local opts = { silent = true, noremap = true }
 keymap.set('n', '<c-h>', '<c-w>h', opts)
 keymap.set('n', '<c-j>', '<c-w>j', opts)
 keymap.set('n', '<c-k>', '<c-w>k', opts)
@@ -52,7 +52,7 @@ api.nvim_create_autocmd('FileType', {
   pattern = '*.rs',
   callback = function()
     opt_local.colorcolumn = '100'
-  end
+  end,
 })
 
 -- Make the cmd window taller for displaying errors
@@ -63,32 +63,38 @@ opt.cmdheight = 2
 opt.signcolumn = 'yes'
 
 -- Inderline cursor line in insert mode
-api.nvim_create_autocmd({'InsertEnter'}, {
-  callback = function() opt.cul = true end
+api.nvim_create_autocmd({ 'InsertEnter' }, {
+  callback = function()
+    opt.cul = true
+  end,
 })
-api.nvim_create_autocmd({'InsertLeave'}, {
-  callback = function() opt.cul = false end
+api.nvim_create_autocmd({ 'InsertLeave' }, {
+  callback = function()
+    opt.cul = false
+  end,
 })
 
 -- Update faster than the default 4000 ms
 opt.updatetime = 100
 
 -- Unconceal formatting characters
-keymap.set('n', '<leader>cl', function() opt.conceallevel = 0 end, opts)
+keymap.set('n', '<leader>cl', function()
+  opt.conceallevel = 0
+end, opts)
 
 -- Explicitly set syntax for certain uncommon filetypes
-local syntax_events = {'BufNewFile', 'BufEnter', 'BufRead'}
+local syntax_events = { 'BufNewFile', 'BufEnter', 'BufRead' }
 api.nvim_create_autocmd(syntax_events, {
-  desc = "Highlight prototxts like yamls",
+  desc = 'Highlight prototxts like yamls',
   pattern = '*.prototxt',
-  callback = function ()
+  callback = function()
     opt_local.syntax = 'yaml'
-  end
+  end,
 })
 api.nvim_create_autocmd(syntax_events, {
-  desc = "Highlight pants BUILD files like python",
-  pattern = 'BUILD.pants',
-  callback = function ()
-    opt_local.syntax = 'python'
-  end
+  desc = 'Highlight pants BUILD files like yamls',
+  pattern = '*.prototxt',
+  callback = function()
+    opt_local.syntax = 'yaml'
+  end,
 })
