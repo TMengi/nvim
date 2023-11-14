@@ -72,3 +72,23 @@ api.nvim_create_autocmd({'InsertLeave'}, {
 
 -- Update faster than the default 4000 ms
 opt.updatetime = 100
+
+-- Unconceal formatting characters
+keymap.set('n', '<leader>cl', function() opt.conceallevel = 0 end, opts)
+
+-- Explicitly set syntax for certain uncommon filetypes
+local syntax_events = {'BufNewFile', 'BufEnter', 'BufRead'}
+api.nvim_create_autocmd(syntax_events, {
+  desc = "Highlight prototxts like yamls",
+  pattern = '*.prototxt',
+  callback = function ()
+    opt_local.syntax = 'yaml'
+  end
+})
+api.nvim_create_autocmd(syntax_events, {
+  desc = "Highlight pants BUILD files like python",
+  pattern = 'BUILD.pants',
+  callback = function ()
+    opt_local.syntax = 'python'
+  end
+})
