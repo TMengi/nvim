@@ -51,6 +51,7 @@ require('lazy').setup({
       'hrsh7th/cmp-cmdline', -- From command line
       'hrsh7th/cmp-vsnip', -- Snippet engine
       'hrsh7th/vim-vsnip', --
+      'hrsh7th/cmp-nvim-lsp-signature-help', -- Function signature completion
     },
   },
   'mhartington/formatter.nvim',

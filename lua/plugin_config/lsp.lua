@@ -16,10 +16,12 @@ local on_attach = function(_, _)
   keymap.set('n', '<leader>ca', lsp.buf.code_action)
   keymap.set('n', 'K', lsp.buf.hover)
   keymap.set('n', 'gd', lsp.buf.definition)
+  keymap.set('n', 'gD', lsp.buf.declaration)
   keymap.set('n', 'gi', lsp.buf.implementation)
   keymap.set('n', 'gr', require('telescope.builtin').lsp_references)
   keymap.set('n', ']g', diagnostic.goto_next)
   keymap.set('n', '[g', diagnostic.goto_prev)
+  keymap.set('i', '<c-k>', lsp.buf.signature_help)
 end
 
 -- Include completion capabilities in various LSPs

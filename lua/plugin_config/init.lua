@@ -8,13 +8,13 @@ local plugin_names = {
   'nvim-tree',
   'nvim-treesitter',
   'telescope',
+  'nvim-cmp',
   'lsp',
   'nvim-autopairs',
   'leap',
   'indentline',
   'comment',
   'vim-gitgutter',
-  'nvim-cmp',
   'formatter',
 }
 
