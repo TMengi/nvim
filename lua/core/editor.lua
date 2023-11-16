@@ -98,6 +98,13 @@ api.nvim_create_autocmd(syntax_events, {
     opt_local.syntax = 'yaml'
   end,
 })
+api.nvim_create_autocmd(syntax_events, {
+  desc = 'Highlight GMAT scripts like matlab',
+  pattern = '*.script',
+  callback = function()
+    opt_local.syntax = 'matlab'
+  end,
+})
 
 -- Additive highlighting
 keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
