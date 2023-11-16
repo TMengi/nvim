@@ -10,13 +10,14 @@ local opt_local = vim.opt_local
 opt.expandtab = true -- Use spaces instead of tabs
 opt.shiftwidth = 2 -- Shift n spaces on tab
 opt.tabstop = 2 -- 1 tab = n spaces
+local four_spaces = function()
+  opt_local.tabstop = 4
+  opt_local.shiftwidth = 4
+end
 api.nvim_create_autocmd('FileType', {
-  desc = 'Some languages indent with 2 spaces',
-  pattern = { 'python', 'rust' },
-  callback = function()
-    opt_local.tabstop = 4
-    opt_local.shiftwidth = 4
-  end,
+  desc = 'Some languages indent with a different number of spaces',
+  pattern = { 'python', 'rust', 'markdown', 'pants' },
+  callback = four_spaces,
 })
 
 -- Search and highlighting
@@ -82,29 +83,30 @@ keymap.set('n', '<leader>cl', function()
   opt.conceallevel = 0
 end, opts)
 
+-- Set the filetype for some uncommon extensions
+api.nvim_create_autocmd({ 'BufNewFile', 'BufEnter', 'BufRead' }, {
+  desc = 'Set filetype for BUILD.pants files',
+  pattern = 'BUILD.pants',
+  callback = function()
+    opt_local.filetype = 'pants'
+  end,
+})
+
 -- Explicitly set syntax for certain uncommon filetypes
 local syntax_events = { 'BufNewFile', 'BufEnter', 'BufRead' }
-api.nvim_create_autocmd(syntax_events, {
-  desc = 'Highlight prototxts like yamls',
-  pattern = '*.prototxt',
-  callback = function()
-    opt_local.syntax = 'yaml'
-  end,
-})
-api.nvim_create_autocmd(syntax_events, {
-  desc = 'Highlight pants BUILD files like yamls',
-  pattern = '*.prototxt',
-  callback = function()
-    opt_local.syntax = 'yaml'
-  end,
-})
-api.nvim_create_autocmd(syntax_events, {
-  desc = 'Highlight GMAT scripts like matlab',
-  pattern = '*.script',
-  callback = function()
-    opt_local.syntax = 'matlab'
-  end,
-})
+local highlight_like = function(pattern, desired_syntax)
+  -- Highlights `pattern` files like they are `desired_syntax` files
+  api.nvim_create_autocmd(syntax_events, {
+    pattern = pattern,
+    callback = function()
+      opt_local.syntax = desired_syntax
+    end,
+  })
+end
+highlight_like('*.sim', 'yaml')
+highlight_like('*.prototxt', 'yaml')
+highlight_like('BUILD.pants', 'python')
+highlight_like('*.script', 'matlab') -- GMAT scripts
 
 -- Additive highlighting
 keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
