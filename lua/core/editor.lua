@@ -50,7 +50,7 @@ opt.textwidth = 79
 opt.colorcolumn = '80,120'
 api.nvim_create_autocmd('FileType', {
   desc = 'Rust allows longer line lengths',
-  pattern = '*.rs',
+  pattern = 'rust',
   callback = function()
     opt_local.colorcolumn = '100'
   end,
