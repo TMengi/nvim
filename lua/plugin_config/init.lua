@@ -3,7 +3,7 @@
 -- Put new files in here, .lua config paths relative to config_dir
 local config_dir = 'plugin_config'
 local plugin_names = {
-  'gruvbox',
+  'colorscheme',
   'lualine',
   'nvim-tree',
   'nvim-treesitter',
