@@ -84,19 +84,23 @@ keymap.set('n', '<leader>cl', function()
 end, opts)
 
 -- Set the filetype for some uncommon extensions
-api.nvim_create_autocmd({ 'BufNewFile', 'BufEnter', 'BufRead' }, {
-  desc = 'Set filetype for BUILD.pants files',
-  pattern = 'BUILD.pants',
-  callback = function()
-    opt_local.filetype = 'pants'
-  end,
-})
+local buffer_events = { 'BufNewFile', 'BufEnter', 'BufRead' }
+local filetype_like = function(pattern, desired_filetype)
+  -- Sets the filetype for ``patern`` files to be ``desired_filetype``
+  api.nvim_create_autocmd(buffer_events, {
+    pattern = pattern,
+    callback = function()
+      opt_local.filetype = desired_filetype
+    end,
+  })
+end
+filetype_like('BUILD.pants', 'pants')
+filetype_like('*.script', 'matlab') -- Pretend GMAT scripts are matlab
 
 -- Explicitly set syntax for certain uncommon filetypes
-local syntax_events = { 'BufNewFile', 'BufEnter', 'BufRead' }
 local highlight_like = function(pattern, desired_syntax)
   -- Highlights `pattern` files like they are `desired_syntax` files
-  api.nvim_create_autocmd(syntax_events, {
+  api.nvim_create_autocmd(buffer_events, {
     pattern = pattern,
     callback = function()
       opt_local.syntax = desired_syntax
@@ -106,7 +110,17 @@ end
 highlight_like('*.sim', 'yaml')
 highlight_like('*.prototxt', 'yaml')
 highlight_like('BUILD.pants', 'python')
-highlight_like('*.script', 'matlab') -- GMAT scripts
+
+-- Explicitly set the comment string for certain uncommon filetypes
+local set_commentstring = function(filetype, commentstring)
+  api.nvim_create_autocmd('FileType', {
+    pattern = filetype,
+    callback = function()
+      opt_local.commentstring = commentstring .. ' %s'
+    end,
+  })
+end
+set_commentstring('pants', '#')
 
 -- Additive highlighting
 keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
