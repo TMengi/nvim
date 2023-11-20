@@ -126,7 +126,7 @@ set_commentstring('pants', '#')
 keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
 
 -- Github view macro
-keymap.set('n', '<leader>v', ':!~/.local/bin/gv.py %<cr>')
+keymap.set('n', '<leader>v', ':!gv %<cr>')
 
 -- Don't autowrap text
 opt.formatoptions:remove({ 't' })
