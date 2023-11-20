@@ -5,6 +5,7 @@
 --   - [x] lua
 --   - [x] python
 --   - [ ] C++
+--   - [x] rust
 -- [ ] LSP for C++
 -- [ ] faster telescope sorting (there are recommendations on the github page)
 

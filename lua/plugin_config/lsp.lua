@@ -46,4 +46,7 @@ lspconfig.pyright.setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
-lspconfig.rust_analyzer.setup({})
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
