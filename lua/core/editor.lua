@@ -131,3 +131,11 @@ keymap.set('n', '<leader>v', ':!gv %<cr>')
 
 -- Don't autowrap text
 opt.formatoptions:remove({ 't' })
+
+-- Search for merge conflicts
+keymap.set('n', '<leader>cf', '/<<<<<<<\\|=======\\|>>>>>>><cr>', { noremap = true })
+
+-- Autoreload changed buffers
+api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  command = "if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif",
+})
