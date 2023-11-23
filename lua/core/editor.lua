@@ -30,17 +30,17 @@ opt.splitbelow = true
 opt.splitright = true
 
 -- Window navigation and resizing
-local opts = { silent = true, noremap = true }
-keymap.set('n', '<c-h>', '<c-w>h', opts)
-keymap.set('n', '<c-j>', '<c-w>j', opts)
-keymap.set('n', '<c-k>', '<c-w>k', opts)
-keymap.set('n', '<c-l>', '<c-w>l', opts)
-keymap.set('n', '<up>', ':resize +1<cr>', opts)
-keymap.set('n', '<down>', ':resize -1<cr>', opts)
-keymap.set('n', '<left>', ':vertical resize -1<cr>', opts)
-keymap.set('n', '<right>', ':vertical resize +1<cr>', opts)
-keymap.set('n', '<leader>wq', ':windo q<cr>', opts)
-keymap.set('n', '<leader>=', '<c-w>=', opts)
+local silent_noremap = { silent = true, noremap = true }
+keymap.set('n', '<c-h>', '<c-w>h', silent_noremap)
+keymap.set('n', '<c-j>', '<c-w>j', silent_noremap)
+keymap.set('n', '<c-k>', '<c-w>k', silent_noremap)
+keymap.set('n', '<c-l>', '<c-w>l', silent_noremap)
+keymap.set('n', '<up>', ':resize +1<cr>', silent_noremap)
+keymap.set('n', '<down>', ':resize -1<cr>', silent_noremap)
+keymap.set('n', '<left>', ':vertical resize -1<cr>', silent_noremap)
+keymap.set('n', '<right>', ':vertical resize +1<cr>', silent_noremap)
+keymap.set('n', '<leader>wq', ':windo q<cr>', silent_noremap)
+keymap.set('n', '<leader>=', '<c-w>=', silent_noremap)
 
 -- Line numbering
 opt.number = true
@@ -82,7 +82,7 @@ opt.updatetime = 100
 -- Unconceal formatting characters
 keymap.set('n', '<leader>cl', function()
   opt.conceallevel = 0
-end, opts)
+end, silent_noremap)
 
 -- Set the filetype for some uncommon extensions
 local buffer_events = { 'BufNewFile', 'BufEnter', 'BufRead' }
@@ -124,7 +124,7 @@ end
 set_commentstring('pants', '#')
 
 -- Additive highlighting
-keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', opts)
+keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', silent_noremap)
 
 -- Github view macro
 keymap.set('n', '<leader>v', ':!gv %<cr>')
@@ -139,3 +139,9 @@ keymap.set('n', '<leader>cf', '/<<<<<<<\\|=======\\|>>>>>>><cr>', { noremap = tr
 api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
   command = "if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif",
 })
+
+-- Quickfix list shortcuts
+keymap.set('n', '<leader>co', ':copen<cr>', silent_noremap)
+keymap.set('n', '<leader>cc', ':cclose<cr>', silent_noremap)
+keymap.set('n', '<leader>cn', ':cnext<cr>', silent_noremap)
+keymap.set('n', '<leader>cp', ':cprev<cr>', silent_noremap)
