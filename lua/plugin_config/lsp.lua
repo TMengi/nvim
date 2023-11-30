@@ -8,6 +8,11 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'pyright',
     'rust_analyzer',
+    'clangd',
+    'bufls',
+    'yamlls',
+    'jsonls',
+    'remark_ls',
   },
 })
 
@@ -50,3 +55,7 @@ lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+lspconfig.bufls.setup({ on_attach = on_attach, capabilities = capabilities })
+lspconfig.yamlls.setup({ on_attach = on_attach, capabilities = capabilities })
+lspconfig.jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
+lspconfig.remark_ls.setup({ on_attach = on_attach, capabilities = capabilities })
