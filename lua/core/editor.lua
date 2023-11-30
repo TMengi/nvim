@@ -141,7 +141,9 @@ api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'
 })
 
 -- Quickfix list shortcuts
-keymap.set('n', '<leader>co', ':copen<cr>', silent_noremap)
-keymap.set('n', '<leader>cc', ':cclose<cr>', silent_noremap)
-keymap.set('n', '<leader>cn', ':cnext<cr>', silent_noremap)
-keymap.set('n', '<leader>cp', ':cprev<cr>', silent_noremap)
+local noremap = { noremap = true }
+keymap.set('n', '<leader>co', ':copen<cr>', noremap)
+keymap.set('n', '<leader>cc', ':cclose<cr>', noremap)
+keymap.set('n', ']q', ':cnext<cr>', noremap)
+keymap.set('n', '[q', ':cprev<cr>', noremap)
+keymap.set('n', '<leader>cq', ':call setqflist([])<cr>', noremap)
