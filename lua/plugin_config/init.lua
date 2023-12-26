@@ -16,6 +16,7 @@ local plugin_names = {
   'comment',
   'vim-gitgutter',
   'formatter',
+  'rust-tools',
 }
 
 for _, name in pairs(plugin_names) do
