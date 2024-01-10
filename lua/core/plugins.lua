@@ -14,7 +14,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'ellisonleao/gruvbox.nvim', -- Colorscheme
+  -- Colorschemes,
+  'ellisonleao/gruvbox.nvim',
+  'catppuccin/nvim',
+
   'nvim-tree/nvim-tree.lua', -- File tree
   {
     'nvim-lualine/lualine.nvim', -- Status line
