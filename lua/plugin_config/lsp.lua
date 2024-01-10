@@ -32,6 +32,8 @@ end
 -- Include completion capabilities in various LSPs
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
+-- The available configurations live in
+-- ~/.local/share/nvim/lazy/nvim-lspconfig/lua/lspconfig/server_configurations
 -- TODO: Figure out how to pass on_attach and capabilities as an extendable
 -- table to all configs
 lspconfig.lua_ls.setup({

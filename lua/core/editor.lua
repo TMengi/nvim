@@ -97,6 +97,7 @@ local filetype_like = function(pattern, desired_filetype)
 end
 filetype_like('BUILD.pants', 'pants')
 filetype_like('*.script', 'matlab') -- Pretend GMAT scripts are matlab
+filetype_like('*.prototxt', 'prototxt')
 
 -- Explicitly set syntax for certain uncommon filetypes
 local highlight_like = function(pattern, desired_syntax)
@@ -122,6 +123,7 @@ local set_commentstring = function(filetype, commentstring)
   })
 end
 set_commentstring('pants', '#')
+set_commentstring('prototxt', '#')
 
 -- Additive highlighting
 keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', silent_noremap)
@@ -147,3 +149,6 @@ keymap.set('n', '<leader>cc', ':cclose<cr>', noremap)
 keymap.set('n', ']q', ':cnext<cr>', noremap)
 keymap.set('n', '[q', ':cprev<cr>', noremap)
 keymap.set('n', '<leader>cq', ':call setqflist([])<cr>', noremap)
+
+-- Command to split newline delimited raw strings
+vim.api.nvim_create_user_command('Splitlines', [[%s/\\n/\r/g]], {})
