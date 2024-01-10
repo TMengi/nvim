@@ -16,7 +16,7 @@ require('mason-lspconfig').setup({
   },
 })
 
-local on_attach = function(_, _)
+local on_attach_global = function(_, _)
   keymap.set('n', '<leader>rn', lsp.buf.rename)
   keymap.set('n', '<leader>ca', lsp.buf.code_action)
   keymap.set('n', 'K', lsp.buf.hover)
@@ -37,7 +37,7 @@ local lspconfig = require('lspconfig')
 -- TODO: Figure out how to pass on_attach and capabilities as an extendable
 -- table to all configs
 lspconfig.lua_ls.setup({
-  on_attach = on_attach,
+  on_attach = on_attach_global,
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -51,13 +51,16 @@ lspconfig.lua_ls.setup({
 })
 lspconfig.pyright.setup({
   capabilities = capabilities,
-  on_attach = on_attach,
+  on_attach = function(_, _)
+    on_attach_global()
+    keymap.set('n', '<leader>i', ':PyrightOrganizeImports<cr>')
+  end,
 })
 lspconfig.rust_analyzer.setup({
-  on_attach = on_attach,
+  on_attach = on_attach_global,
   capabilities = capabilities,
 })
-lspconfig.bufls.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.yamlls.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
-lspconfig.remark_ls.setup({ on_attach = on_attach, capabilities = capabilities })
+lspconfig.bufls.setup({ on_attach = on_attach_global, capabilities = capabilities })
+lspconfig.yamlls.setup({ on_attach = on_attach_global, capabilities = capabilities })
+lspconfig.jsonls.setup({ on_attach = on_attach_global, capabilities = capabilities })
+lspconfig.remark_ls.setup({ on_attach = on_attach_global, capabilities = capabilities })
