@@ -64,4 +64,10 @@ lspconfig.bufls.setup({ on_attach = on_attach_global, capabilities = capabilitie
 lspconfig.yamlls.setup({ on_attach = on_attach_global, capabilities = capabilities })
 lspconfig.jsonls.setup({ on_attach = on_attach_global, capabilities = capabilities })
 lspconfig.remark_ls.setup({ on_attach = on_attach_global, capabilities = capabilities })
-lspconfig.clangd.setup({ on_attach = on_attach_global, capabilities = capabilities })
+lspconfig.clangd.setup({
+  on_attach = function()
+    on_attach_global()
+    keymap.set('n', '<leader>o', ':ClangdSwitchSourceHeader<cr>')
+  end,
+  capabilities = capabilities,
+})
