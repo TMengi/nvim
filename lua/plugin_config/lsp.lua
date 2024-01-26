@@ -65,6 +65,7 @@ lspconfig.yamlls.setup({ on_attach = on_attach_global, capabilities = capabiliti
 lspconfig.jsonls.setup({ on_attach = on_attach_global, capabilities = capabilities })
 lspconfig.remark_ls.setup({ on_attach = on_attach_global, capabilities = capabilities })
 lspconfig.clangd.setup({
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
   on_attach = function()
     on_attach_global()
     keymap.set('n', '<leader>o', ':ClangdSwitchSourceHeader<cr>')
