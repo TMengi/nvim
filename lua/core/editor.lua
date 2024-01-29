@@ -150,5 +150,20 @@ keymap.set('n', ']q', ':cnext<cr>', noremap)
 keymap.set('n', '[q', ':cprev<cr>', noremap)
 keymap.set('n', '<leader>cq', ':call setqflist([])<cr>', noremap)
 
+-- Functions and keymaps to open all quickfix items in various splits
+local qfopen_wrapper = function(...)
+  local qfopen = function(cmd)
+    vim.cmd.cfdo('silent ' .. cmd .. ' %')
+    vim.cmd.quit()
+  end
+  local args = {...}
+  return function()
+    qfopen(unpack(args))
+  end
+end
+keymap.set('n', '<leader>os', qfopen_wrapper('sp'), noremap)
+keymap.set('n', '<leader>ov', qfopen_wrapper('vs'), noremap)
+keymap.set('n', '<leader>ot', qfopen_wrapper('tabnew'), noremap)
+
 -- Command to split newline delimited raw strings
 vim.api.nvim_create_user_command('Splitlines', [[%s/\\n/\r/g]], {})
