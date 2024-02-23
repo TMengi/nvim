@@ -159,6 +159,7 @@ local qfopen_wrapper = function(...)
   local args = {...}
   return function()
     qfopen(unpack(args))
+    vim.cmd.cclose()
   end
 end
 keymap.set('n', '<leader>os', qfopen_wrapper('sp'), noremap)
