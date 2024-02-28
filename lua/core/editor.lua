@@ -126,7 +126,7 @@ set_commentstring('pants', '#')
 set_commentstring('prototxt', '#')
 
 -- Additive highlighting
-keymap.set('n', '<leader>*', 'viwy/<up>\\|<c-r>0<cr>', silent_noremap)
+keymap.set('n', '<leader>*', 'viwy/<up>\\|\\<<c-r>0\\><cr>', silent_noremap)
 
 -- Github view macro
 keymap.set('n', '<leader>v', ':!gv %<cr>')
