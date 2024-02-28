@@ -124,6 +124,7 @@ local set_commentstring = function(filetype, commentstring)
 end
 set_commentstring('pants', '#')
 set_commentstring('prototxt', '#')
+set_commentstring('kdl', '//')
 
 -- Additive highlighting
 keymap.set('n', '<leader>*', 'viwy/<up>\\|\\<<c-r>0\\><cr>', silent_noremap)
