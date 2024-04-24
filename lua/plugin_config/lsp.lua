@@ -6,7 +6,7 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     'lua_ls',
-    'pyright',
+    'pyright@1.1.259',
     'rust_analyzer',
     'clangd',
     'bufls',
