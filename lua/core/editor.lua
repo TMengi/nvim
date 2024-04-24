@@ -16,7 +16,7 @@ local four_spaces = function()
 end
 api.nvim_create_autocmd('FileType', {
   desc = 'Some languages indent with a different number of spaces',
-  pattern = { 'python', 'rust', 'markdown', 'pants' },
+  pattern = { 'python', 'rust', 'markdown', 'pants', 'matlab', 'bzl' },
   callback = four_spaces,
 })
 
@@ -157,7 +157,7 @@ local qfopen_wrapper = function(...)
     vim.cmd.cfdo('silent ' .. cmd .. ' %')
     vim.cmd.quit()
   end
-  local args = {...}
+  local args = { ... }
   return function()
     qfopen(unpack(args))
     vim.cmd.cclose()
