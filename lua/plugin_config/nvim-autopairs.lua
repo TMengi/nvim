@@ -3,7 +3,9 @@ local cond = require('nvim-autopairs.conds')
 local Rule = require('nvim-autopairs.rule')
 
 autopairs.setup({
-  enable_check_bracket_line = false,
+  event = "InsertEnter",
+  config = true,
+  enable_check_bracket_line = true,
 })
 
 autopairs.add_rules({
@@ -12,5 +14,9 @@ autopairs.add_rules({
     -- operators
     :with_pair(
       cond.not_before_regex(' ')
-    ),
+    )
+    -- Move cursor right when completing the pair
+    :with_move(cond.done())
+    -- Don't split pair onto multiple lines with carriage return
+    :with_cr(cond.none())
 })
