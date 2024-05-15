@@ -41,6 +41,7 @@ keymap.set('n', '<left>', ':vertical resize -1<cr>', silent_noremap)
 keymap.set('n', '<right>', ':vertical resize +1<cr>', silent_noremap)
 keymap.set('n', '<leader>wq', ':windo q<cr>', silent_noremap)
 keymap.set('n', '<leader>=', '<c-w>=', silent_noremap)
+keymap.set('n', '<leader>tn', ':tabnew<cr>', silent_noremap)
 
 -- Line numbering
 opt.number = true
