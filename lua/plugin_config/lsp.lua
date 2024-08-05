@@ -85,6 +85,13 @@ lspconfig.pyright.setup({
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach_global,
   capabilities = capabilities,
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        allFeatures = true,
+      },
+    },
+  },
 })
 lspconfig.bufls.setup({ on_attach = on_attach_global, capabilities = capabilities })
 lspconfig.yamlls.setup({ on_attach = on_attach_global, capabilities = capabilities })
